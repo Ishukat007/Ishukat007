@@ -1,48 +1,62 @@
 package com.wecp.progressive.entity;
 
-public class Product {
-    private int product_id;
-    private int warehouse_id;
-    private String product_name;
-    private String product_description;
-    private int quantity;
-    private double price;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
-    public Product(){}
+@Entity
+public class Product  {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    int productId;
+    int warehouseId;
+    String productName;
+    String productDescription;
+    int quantity;
+    long price;
     
-    public Product(int product_id, int warehouse_id, String product_name, String product_description, int quantity,
-            double price) {
-        this.product_id = product_id;
-        this.warehouse_id = warehouse_id;
-        this.product_name = product_name;
-        this.product_description = product_description;
+    public Product(int productId, int warehouseId, String productName, String productDescription, int quantity,
+            long price) {
+        this.productId = productId;
+        this.warehouseId = warehouseId;
+        this.productName = productName;
+        this.productDescription = productDescription;
         this.quantity = quantity;
         this.price = price;
     }
-
-    public int getProduct_id() {
-        return product_id;
+    public Product () {}
+    public Product(int warehouseId, String productName, String productDescription, int quantity,
+    long price) {
+        this.warehouseId = warehouseId;
+        this.productName = productName;
+        this.productDescription = productDescription;
+        this.quantity = quantity;
+        this.price = price;
     }
-    public void setProduct_id(int product_id) {
-        this.product_id = product_id;
+    public int getProductId() {
+        return productId;
     }
-    public int getWarehouse_id() {
-        return warehouse_id;
+    public void setProductId(int productId) {
+        this.productId = productId;
     }
-    public void setWarehouse_id(int warehouse_id) {
-        this.warehouse_id = warehouse_id;
+    public int getWarehouseId() {
+        return warehouseId;
     }
-    public String getProduct_name() {
-        return product_name;
+    public void setWarehouseId(int warehouseId) {
+        this.warehouseId = warehouseId;
     }
-    public void setProduct_name(String product_name) {
-        this.product_name = product_name;
+    public String getProductName() {
+        return productName;
     }
-    public String getProduct_description() {
-        return product_description;
+    public void setProductName(String productName) {
+        this.productName = productName;
     }
-    public void setProduct_description(String product_description) {
-        this.product_description = product_description;
+    public String getProductDescription() {
+        return productDescription;
+    }
+    public void setProductDescription(String productDescription) {
+        this.productDescription = productDescription;
     }
     public int getQuantity() {
         return quantity;
@@ -50,13 +64,14 @@ public class Product {
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
-    public double getPrice() {
+    public long getPrice() {
         return price;
     }
-    public void setPrice(double price) {
+    public void setPrice(long price) {
         this.price = price;
     }
-
     
+
+
     
 }
